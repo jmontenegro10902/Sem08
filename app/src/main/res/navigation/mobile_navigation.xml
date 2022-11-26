@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_addLugarFragment"
             app:destination="@id/addLugarFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_updateLugarFragment"
+            app:destination="@id/updateLugarFragment" />
     </fragment>
 
     <fragment
@@ -28,11 +31,23 @@
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/addLugarFragment"
-        android:name="com.example.sem08.AddLugarFragment"
+        android:name="com.example.sem08.ui.home.AddLugarFragment"
         android:label="fragment_add_lugar"
         tools:layout="@layout/fragment_add_lugar" >
         <action
             android:id="@+id/action_addLugarFragment_to_nav_home"
             app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateLugarFragment"
+        android:name="com.example.sem08.ui.home.UpdateLugarFragment"
+        android:label="fragment_update_lugar"
+        tools:layout="@layout/fragment_update_lugar" >
+        <action
+            android:id="@+id/action_updateLugarFragment_to_nav_home"
+            app:destination="@id/nav_home" />
+        <argument
+            android:name="lugarArg"
+            app:argType="com.example.sem08.model.Lugar" />
     </fragment>
 </navigation>

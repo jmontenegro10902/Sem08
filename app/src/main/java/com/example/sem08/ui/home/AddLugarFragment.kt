@@ -15,7 +15,7 @@ import com.example.sem08.viewModel.HomeViewModel
 
 class AddLugarFragment : Fragment() {
 
-   private var _binding: FragmentAddLugarBinding? = null
+    private var _binding: FragmentAddLugarBinding? = null
     private val binding get() = _binding!!
     private lateinit var homeViewModel: HomeViewModel
 
@@ -24,8 +24,8 @@ class AddLugarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(homeViewModel::class.java)
-        _binding = FragmentAddLugarBinding.inflate(inflater, container,false)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        _binding = FragmentAddLugarBinding.inflate(inflater, container, false)
 
         binding.btAgregar.setOnClickListener { agregarLugar() }
 
@@ -33,20 +33,21 @@ class AddLugarFragment : Fragment() {
         return binding.root
     }
 
-    private  fun agregarLugar(){
+    private fun agregarLugar() {
         val nombre = binding.etNombre.toString()
         val coreo = binding.etCorreo.toString()
         val telefono = binding.etTelefono.toString()
         val web = binding.etWeb.toString()
 
-        if (nombre.isNotEmpty()){
-            val lugar = Lugar(0,nombre,coreo,telefono,web)
+        if (nombre.isNotEmpty()) {
+            val lugar = Lugar("", nombre, coreo, telefono, web)
             homeViewModel.guardarLugar(lugar)
-            Toast.makeText(requireContext(), getText(R.string.ms_AddLugar), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), getText(R.string.ms_AddLugar), Toast.LENGTH_LONG)
+                .show()
             findNavController().navigate(R.id.action_addLugarFragment_to_nav_home)
-        }
-        else{
-            Toast.makeText(requireContext(), getText(R.string.ms_FaltaNombre), Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(requireContext(), getText(R.string.ms_FaltaValores), Toast.LENGTH_LONG)
+                .show()
 
         }
     }
