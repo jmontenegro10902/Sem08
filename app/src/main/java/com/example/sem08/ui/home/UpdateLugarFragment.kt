@@ -38,9 +38,24 @@ class UpdateLugarFragment : Fragment() {
         binding.etWeb.setText(args.lugarArg.web)
 
         binding.btUpdateLugar.setOnClickListener { updateLugar()}
-        //binding.btDeleteLugar.setOnClickListener { deleteLugar() }
+        binding.btDeleteLugar.setOnClickListener { deleteLugar() }
 
         return binding.root
+    }
+
+    private fun deleteLugar(){
+        val nombre = binding.etNombre.text.toString()
+        val correo = binding.etCorreoLugar.text.toString()
+        val telefono = binding.etTelefono.text.toString()
+        val web = binding.etWeb.text.toString()
+        if (nombre.isNotEmpty()){
+            val lugar = Lugar(args.lugarArg.id,nombre, correo, telefono, web, args.lugarArg.rutaAudio, args.lugarArg.rutaImagen)
+            homeViewModel.eliminarLugar(lugar)
+            Toast.makeText(requireContext(), getText(R.string.ms_UpdateLugar), Toast.LENGTH_LONG).show()
+        }
+        else{
+            Toast.makeText(requireContext(), getString(R.string.ms_FaltaValores), Toast.LENGTH_LONG).show()
+        }
     }
 
     private fun updateLugar(){
@@ -49,7 +64,7 @@ class UpdateLugarFragment : Fragment() {
         val telefono = binding.etTelefono.text.toString()
         val web = binding.etWeb.text.toString()
         if (nombre.isNotEmpty()){
-            val lugar = Lugar(args.lugarArg.id,nombre, correo, telefono, web)
+            val lugar = Lugar(args.lugarArg.id,nombre, correo, telefono, web, args.lugarArg.rutaAudio, args.lugarArg.rutaImagen)
             homeViewModel.guardarLugar(lugar)
             Toast.makeText(requireContext(), getText(R.string.ms_UpdateLugar), Toast.LENGTH_LONG).show()
         }

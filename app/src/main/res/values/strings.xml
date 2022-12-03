@@ -23,7 +23,19 @@
     <string name="btAddLugar">Agregar Lugar</string>
     <string name="ms_AddLugar">Lugar Agragado</string>
     <string name="ms_UpdateLugar">Lugar Actualizado</string>
+    <string name="ms_DeleteLugar">Lugar Eliminado</string>
     <string name="ms_FaltaValores">Faltan Valores!!!</string>
     <string name="bt_update_lugar">Actualizar Lugar</string>
     <string name="bt_delete_lugar">Eliminar Lugar</string>
+
+    <string name="todo"> To do</string>
+    <string name="msg_imagen">Foto del Lugar</string>
+
+    <string name="msgEscucharAudio">FEscuchar Audio</string>
+
+
+    <string name="msgInicioNotaAudio">Grabando Audio</string>
+    <string name="msgDetieneNotaAudio">Detener Audio</string>
+
+    <string name="msgSubiendo">Subiendo Archivos</string>
 </resources>

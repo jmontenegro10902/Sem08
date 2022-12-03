@@ -68,5 +68,13 @@ dependencies {
 //    implementation 'androidx.room:room-ktx:2.4.3'
 
     //FireBase FireStore
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    //FireBase Storage
+    implementation 'com.google.firebase:firebase-storage-ktx'
+
+    //GitHub
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
 }

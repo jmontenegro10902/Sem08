@@ -23,13 +23,13 @@ class LugarDao {
     }
 
     fun getLugares(): MutableLiveData<List<Lugar>>{
-        val listLugar: MutableLiveData<List<Lugar>>()
+        val listaLugares = MutableLiveData<List<Lugar>>()
+
         firestore
             .collection("LugaresViernes")
             .document()
             .collection("misLugares")
-            .document()
-            .addSnapshotListener { snapshot, 0 ->
+            .addSnapshotListener { snapshot, e ->
                 if (e!= null){
                     return@addSnapshotListener
                 }
@@ -46,6 +46,7 @@ class LugarDao {
                 }
             }
         return listaLugares
+
     }
 
 
